@@ -9,13 +9,30 @@ git clone <repo-url>
 ```
 
 ```bash
+cd <repo>
+```
+
+```bash
+python -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+```bash
 pip install -r requirements.txt
+```
+## Mysql Datbase Creation
+
+```bash
+mysql -u<user> -p -e 'source schema.sql'
 ```
 
 ## Running The App
 
 ```bash
-python main.py
+flask run
 ```
 
 ## Viewing The App
