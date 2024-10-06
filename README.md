@@ -29,6 +29,10 @@ pip install -r requirements.txt
 mysql -u<user> -p -e 'source schema.sql'
 ```
 
+```bash
+Update mysql credentials in app.py
+```
+
 ## Running The App
 
 ```bash
