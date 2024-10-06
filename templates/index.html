@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2 class="my-4">Consumer List</h2>
+
+        <!-- Search input -->
+        <input type="text" id="searchConsumer" class="form-control" placeholder="Search Consumers" onkeyup="searchConsumer()">
+
+        <!-- Add Button -->
+        
+        <div>
+            <button class="btn btn-primary my-3" onclick="showAddForm()">Add Consumer</button>
+            &nbsp&nbsp&nbsp&nbsp&nbsp*&nbspClick on Name or Email tabs below to sort data
+        </div> 
+
+        <!-- Consumer List -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Name*</th>
+                    <th onclick="sortTable(1)">Email*</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="consumerList">
+                <!-- Consumer list will be populated here -->
+            </tbody>
+        </table>
+
+        <!-- Add/Update Form -->
+        <div id="consumerForm" class="d-none">
+            <h3 id="formTitle">Add Consumer</h3>
+            <form id="form" onsubmit="submitForm(event)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" class="form-control" id="phone" max="9999999999" min="1000000000" required>
+                </div>
+                <input type="hidden" id="consumerId">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="button" class="btn btn-secondary" onclick="hideForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+</body>
+</html>
+
